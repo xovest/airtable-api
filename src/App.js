@@ -1,8 +1,16 @@
 import Airtable from "airtable";
 import { useEffect, useState } from "react";
 import Goal from "./components/Goal";
+import styled from 'styled-components';
+import { GlobalStyle } from './styles/Global.style';
 
 const base = new Airtable({ apiKey: 'keyUFqqZLAFr4tW5D' }).base('appUASBYdWNQWhdY2');
+
+const StyledH1 = styled.h1`
+  text-align: center;
+  font-size: 4rem;
+  margin: 1rem 0;
+`;
 
 function App() {
   const [goalz, setGoalz] = useState([]);
@@ -25,7 +33,8 @@ function App() {
 
   return (
     <>
-      <h1>Goalz dude</h1>
+      <GlobalStyle />
+      <StyledH1>Goalz mah dude</StyledH1>
       {goalz.map(goal => (
         <Goal
           key={goal.id}
